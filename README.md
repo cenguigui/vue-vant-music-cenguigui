@@ -5,20 +5,21 @@
 
 # 演示
 
-##### 首页
-![首页](首页.png "首页png")
 
-##### 歌单详情
-![歌单详情](歌单详情.png "歌单详情png")
+<table>
+  <tr>
+    <td><img src="首页.png" alt="首页" width="300" height="500" /></td>
+    <td><img src="歌单详情.png" alt="歌单详情" width="300" height="500" /></td>
+  </tr>
 
-##### 搜索
-![搜索](搜索.png "搜索png")
+<tr>
+    <td><img src="搜索.png" alt="搜索" width="300" height="500" /></td>
+    <td><img src="歌词.png" alt="歌词" width="300" height="500" /></td>
+ </tr>
 
-##### 歌词
-![歌词](歌词.png "歌词png")
+</table>
 
-##### 播放列表
-![播放列表](播放列表.png "播放列表png")
+
 
 
 
