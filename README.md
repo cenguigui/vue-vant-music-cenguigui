@@ -2,6 +2,23 @@
 ## 是一个基于vue3.0的移动端音乐播放器
 ### 使用请留个版权可好，制作不易
 ### 一个学校的学习项目，写得不好，大牛勿喷，还有更多功能没有写
+### 2025年2月27日修复首页歌单播放量显示问题，之前只有亿和万，现在加了千和百如下：
+
+```
+/ 处理播放量处理：亿、万、千、百
+        const changeCount = (num) => {
+            if (num >= 100000000) {
+                return (num / 100000000).toFixed(1) + '亿'
+            } else if (num >= 10000) {
+                return (num / 10000).toFixed(1) + '万'
+            } else if (num >= 1000) {
+                return (num / 1000).toFixed(1) + '千'
+            }
+            else if (num >= 100) {
+                return (num / 100).toFixed(1) + '百'
+            }
+        }
+```
 
 # 演示
 
@@ -58,6 +75,9 @@ npm install axios --save
 ```
 npm run serve
 ```
+
+### 不会打包的可以保存demo的代码本地运行获取上传服务器运行都行
+### npm安装不了的直接解压(完整包，直接run.7z)这个压缩包直接：npm run serve
 
 
 ### 赞赏

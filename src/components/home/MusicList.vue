@@ -15,7 +15,7 @@
         <div class="musicContent">
             <van-row gutter="10">
                 <van-col span="8" v-for="item in musicList" :key="item">
-                    <router-link :to="{ path: '/itemMusic', query:{ id: item.rid }}">
+                    <router-link :to="{ path: '/itemMusic', query: { id: item.rid } }">
                         <img :src="item.pic" alt="">
                         <!-- 播放量 -->
                         <p class="playCount">
@@ -40,32 +40,36 @@
 import { getMusicList } from '@/request/api/home.js';
 import { reactive, onMounted } from 'vue';
 export default {
-    // vue2写法
-    //     data() {
-    //         return {
-    //             musicList: []
-    //         };
+    // // vue2写法
+    // data() {
+    //     return {
+    //         musicList: []
+    //     };
+    // },
+    // methods: {
+    //     async getMusicList() {
+    //         let res = await getMusicList()
+    //         // console.log(res)
+    //         this.musicList = res.data.data
+    //         console.log(this.musicList)
     //     },
-    //     methods: {
-    //         async getMusicList() {
-    //             let res = await getMusicList()
-    //             // console.log(res)
-    //             this.musicList = res.data.data
-    //             console.log(this.musicList)
-    //         },
-    //         // 处理播放量处理
-    //         changeCount: function (num) {
-    //             if (num >= 100000000) {
-    //                 return (num / 10000000).toFixed(1) + '亿'
-    //             } else if (num >= 10000) {
-    //                 return (num / 10000).toFixed(1) + '万'
-
-    //             }
+    //     // 处理播放量处理：亿、万、千、百
+    //     changeCount: function (num) {
+    //         if (num >= 100000000) {
+    //             return (num / 10000000).toFixed(1) + '亿'
+    //         } else if (num >= 10000) {
+    //             return (num / 10000).toFixed(1) + '万'
+    //         } else if (num >= 1000) {
+    //             return (num / 1000).toFixed(1) + '千'
     //         }
-    //     },
-    //     mounted() {
-    //         this.getMusicList()
-    //     },
+    //         else if (num >= 100) {
+    //             return (num / 100).toFixed(1) + '百'
+    //         }
+    //     }
+    // },
+    // mounted() {
+    //     this.getMusicList()
+    // },
     // Vue3写法
     setup() {
         let musicList = reactive([])
@@ -75,15 +79,20 @@ export default {
             // console.log(musicList)
         })
 
-        // 处理播放量处理
+        // 处理播放量处理：亿、万、千、百
         const changeCount = (num) => {
             if (num >= 100000000) {
-                return (num / 10000000).toFixed(1) + '亿'
+                return (num / 100000000).toFixed(1) + '亿'
             } else if (num >= 10000) {
                 return (num / 10000).toFixed(1) + '万'
-
+            } else if (num >= 1000) {
+                return (num / 1000).toFixed(1) + '千'
+            }
+            else if (num >= 100) {
+                return (num / 100).toFixed(1) + '百'
             }
         }
+
         return { musicList, changeCount }
     }
 
